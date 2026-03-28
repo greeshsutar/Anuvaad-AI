@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ANUVAAD.AI — Translate, Summarize & Listen</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script>
+  function toggleMenu() {
+    const nav = document.querySelector(".navbar");
+    nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+  }
+</script>
+</head>
+<body>
+
+<header>
+  <h1>ANUVAAD.AI</h1>
+  <span class="menu-btn" onclick="toggleMenu()">☰</span>
+  <nav class="navbar">
+    <a href="{{ url_for('home') }}" class="active">Home</a>
+    <a href="{{ url_for('translate') }}">Translate</a>
+    <a href="{{ url_for('support') }}">Support</a>
+    <a href="{{ url_for('developer') }}">Developer</a>
+    <a href="{{ url_for('about') }}">About</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">✦ AI-Powered Language Platform</div>
+    <h1>Har Bhasha,<br><em>Ek Awaaz.</em></h1>
+    <p class="sub-heading">Translate · Summarize · Listen — in seconds</p>
+    <p class="hero-desc">
+      ANUVAAD.AI breaks language barriers and condenses long content into clear,
+      spoken summaries — all in one seamless workflow.
+      <br><strong>Not just words. Meaning.</strong>
+    </p>
+    <a href="{{ url_for('translate') }}" class="btn-primary hero-btn">🚀 Start Translating</a>
+    <div class="hero-chips">
+      <div class="hero-chip">🌐 4 Languages</div>
+      <div class="hero-chip">✦ AI Summarization</div>
+      <div class="hero-chip">🎧 Text-to-Speech</div>
+      <div class="hero-chip">📄 PDF & TXT Upload</div>
+    </div>
+  </div>
+</section>
+
+<section class="features-section">
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">🌐</span>
+      <h3>Smart Translation</h3>
+      <p>Translate between English, Hindi, Marathi and Kannada with high accuracy using Google Translate AI.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">✦</span>
+      <h3>AI Summarization</h3>
+      <p>Powered by Facebook's BART model — instantly condenses long documents into clear, concise summaries.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🎧</span>
+      <h3>Text-to-Speech</h3>
+      <p>Listen to your translated and summarized text as natural-sounding audio in any supported language.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📄</span>
+      <h3>File Upload</h3>
+      <p>Upload TXT or PDF files directly. ANUVAAD.AI extracts, translates, and summarizes automatically.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <a href="{{ url_for('developer') }}">Developer</a>
+  <p>📧 girishasutar223gmail.com</p>
+  <p>© 2025 ANUVAAD.AI — All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

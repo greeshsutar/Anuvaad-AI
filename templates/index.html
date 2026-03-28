@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translate — ANUVAAD.AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector(".navbar");
+            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>ANUVAAD.AI</h1>
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('translate') }}" class="active">Translate</a>
+        <a href="{{ url_for('support') }}">Support</a>
+        <a href="{{ url_for('developer') }}">Developer</a>
+        <a href="{{ url_for('about') }}">About</a>
+    </nav>
+</header>
+
+<div class="translate-container">
+    <div class="full-card">
+
+        <div class="card-header">
+            <p class="title">Translate &amp; Summarize</p>
+            <p class="card-subtitle">Not just words. Meaning.</p>
+        </div>
+
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data">
+
+                <label class="language-label">Your Text</label>
+                <textarea name="input_text" placeholder="Type or paste your text here...">{{ original_text }}</textarea>
+
+                <label class="language-label">Or Upload File (TXT / PDF)</label>
+                <input type="file" name="file" accept=".txt,.pdf" class="file-input">
+
+                <label class="language-label">Select Target Language</label>
+                <select name="language" required>
+                    <option value="English" {% if selected_language=='English' %}selected{% endif %}>English</option>
+                    <option value="Hindi" {% if selected_language=='Hindi' %}selected{% endif %}>Hindi</option>
+                    <option value="Marathi" {% if selected_language=='Marathi' %}selected{% endif %}>Marathi</option>
+                    <option value="Kannada" {% if selected_language=='Kannada' %}selected{% endif %}>Kannada</option>
+                </select>
+
+                <button class="btn-primary" type="submit">Translate &amp; Summarize</button>
+
+            </form>
+
+            {% if translated %}
+            <div class="output-block">
+                <h3>Translated Text</h3>
+                <p>{{ translated }}</p>
+            </div>
+            {% endif %}
+
+            {% if summarized %}
+            <div class="output-block">
+                <h3>Summarized Text</h3>
+                <p>{{ summarized }}</p>
+            </div>
+            {% endif %}
+
+            {% if summarized %}
+            <a class="audio-btn" href="{{ url_for('audio') }}" target="_blank">🎧 Play Audio</a>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <a href="{{ url_for('developer') }}">Developer</a>
+    <p>📧 girishasutar223gmail.com</p>
+    <p>© 2025 ANUVAAD.AI — All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

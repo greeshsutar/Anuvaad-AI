@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developer — ANUVAAD.AI</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script>
+function toggleMenu() {
+  const nav = document.querySelector(".navbar");
+  nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+}
+</script>
+</head>
+<body>
+
+<header>
+  <h1>ANUVAAD.AI</h1>
+  <span class="menu-btn" onclick="toggleMenu()">☰</span>
+  <nav class="navbar">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('translate') }}">Translate</a>
+    <a href="{{ url_for('support') }}">Support</a>
+    <a href="{{ url_for('developer') }}" class="active">Developer</a>
+    <a href="{{ url_for('about') }}">About</a>
+  </nav>
+</header>
+
+<div class="dev-wrapper">
+  <div class="dev-card">
+
+    <div class="dev-header">
+      <div class="dev-avatar-lg">GS</div>
+      <h1>Built by Innovators</h1>
+      <p class="dev-sub">The minds behind ANUVAAD.AI — crafting intelligent language solutions.</p>
+      <div class="dev-tags">
+        <span class="dev-tag">Flask</span>
+        <span class="dev-tag">Python</span>
+        <span class="dev-tag">NLP</span>
+        <span class="dev-tag">Full-Stack</span>
+        <span class="dev-tag">AI/ML</span>
+      </div>
+    </div>
+
+    <div class="dev-body">
+
+      <span class="section-title">🚀 Founder & Lead Developer</span>
+      <p class="dev-bio">
+        <strong>Greesh Sutar</strong> — Founder of ANUVAAD.AI, focused on building
+        scalable AI-powered tools for language processing, automation, and real-world
+        applications.
+      </p>
+      <ul class="dev-list">
+        <li>AI-powered NLP systems</li>
+        <li>Full-stack application architecture</li>
+        <li>Product design & user experience</li>
+        <li>Deployment & performance optimization</li>
+      </ul>
+
+      <span class="section-title">🌐 Vision</span>
+      <p class="dev-bio">
+        ANUVAAD.AI is built with a mission to simplify how people interact with language.
+        From translation to summarization and speech, the platform is designed to deliver
+        fast, intelligent, and accessible AI tools for everyday use —
+        <em>Not just words. Meaning.</em>
+      </p>
+
+      <span class="section-title">🤝 Contributors</span>
+      <div class="contrib-grid">
+        <div class="contrib-card">
+          <strong>UI/UX Support</strong>
+          <p>Feedback, testing, and interface improvement suggestions throughout development.</p>
+        </div>
+        <div class="contrib-card">
+          <strong>Data Preparation</strong>
+          <p>Dataset preparation, validation, and translation sample collection.</p>
+        </div>
+        <div class="contrib-card">
+          <strong>Optimization</strong>
+          <p>Feature suggestions, accuracy review, and performance improvement ideas.</p>
+        </div>
+      </div>
+
+      <span class="section-title">🎓 Mentorship</span>
+      <div class="mentor-card">
+        <div class="team-avatar">BC</div>
+        <div>
+          <strong>Academic Mentor</strong>
+          <p>Guided by experienced mentors who provided direction, feedback, and technical
+          insights during the development journey of ANUVAAD.AI.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <a href="{{ url_for('developer') }}">Developer</a>
+  <p>📧 girishasutar223gmail.com</p>
+  <p>© 2025 ANUVAAD.AI — All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

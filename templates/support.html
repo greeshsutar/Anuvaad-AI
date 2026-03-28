@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — ANUVAAD.AI</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script>
+function toggleMenu() {
+  const nav = document.querySelector(".navbar");
+  nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+}
+</script>
+</head>
+<body>
+
+<header>
+  <h1>ANUVAAD.AI</h1>
+  <span class="menu-btn" onclick="toggleMenu()">☰</span>
+  <nav class="navbar">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('translate') }}">Translate</a>
+    <a href="{{ url_for('support') }}" class="active">Support</a>
+    <a href="{{ url_for('developer') }}">Developer</a>
+    <a href="{{ url_for('about') }}">About</a>
+  </nav>
+</header>
+
+<div class="support-wrapper">
+  <section class="support-box">
+
+    <div class="support-header">
+      <h2>Share Your Feedback</h2>
+      <p class="support-sub">Help us improve ANUVAAD.AI — your thoughts matter to us.</p>
+    </div>
+
+    <div class="support-form">
+
+      {% if success %}
+      <div class="success-box">
+        ✔ Thank you! Your feedback has been submitted successfully.
+      </div>
+      {% endif %}
+
+      <form method="POST" action="/submit-feedback">
+
+        <div class="input-row">
+          <div class="input-group">
+            <label>Your Name</label>
+            <input type="text" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="input-group">
+            <label>Your Email</label>
+            <input type="email" name="email" placeholder="you@email.com" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Rate Your Experience</label>
+          <select name="rating" required>
+            <option value="">— Select a rating —</option>
+            <option>Excellent</option>
+            <option>Good</option>
+            <option>Average</option>
+            <option>Poor</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Your Feedback</label>
+          <textarea name="message" placeholder="Tell us what worked well, what could be better..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Feedback →</button>
+
+      </form>
+    </div>
+
+  </section>
+</div>
+
+<footer class="footer">
+  <a href="{{ url_for('developer') }}">Developer</a>
+  <p>📧 girishasutar223gmail.com</p>
+  <p>© 2025 ANUVAAD.AI — All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
